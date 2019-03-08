@@ -23,8 +23,8 @@ To Do:
 Please forward any feedback, questions, or concerns to R30hedron on Discord (@R30hedron#9529)
 
 Special thanks to:
-Lemonymous for help with the autosplitter code
-Xenesis for finding GoG version addresses
+* Lemonymous for help with the autosplitter code
+* Xenesis for finding GoG version addresses
 
 Changelog: 
-1.0 (7-Mar-2019): First public release (ItB version 1.1.22)
+* 1.0 (7-Mar-2019): First public release (ItB version 1.1.22)
