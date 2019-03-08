@@ -13,7 +13,8 @@ As of version 1.0 the following are implemented:
 * Automatic Timer Resets
 * Support for all three versions (Steam, GoG, Humble)
 
-* To Do:
+
+To Do:
 * Find a way to correctly set the version without requiring the user to set it manually.
     * Cannot use MainModuleSize, since all three versions have the same module size
     * Cannot use FileVersion, since there is no version attached to Breach.exe
