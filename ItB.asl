@@ -1,7 +1,7 @@
 /* Into the Breach Autosplitter (16-Mar-2019)
  * Created by R30hedron (@R30hedron#9520 on Discord)
  * With assistance from Lemonymous (@Lemonymous#6212 on Discord)
- * Special thanks to Xenesis for the GoG version addresses (@Xenesis#2625 pn Discord)
+ * Special thanks to Xenesis for the GoG version addresses (@Xenesis#2625 on Discord)
 
  * Currently accurate for Windows ItB version 1.1.22 (Steam, Humble, and GoG)
  */
@@ -61,7 +61,7 @@ init
     
     //md5 checksum code pulled from Zment's Defy Gravity autosplitter
     
-    byte[] exeMD5HashBytes = new byte[0]
+    byte[] exeMD5HashBytes = new byte[0];
     using (var md5 = System.Security.Cryptography.MD5.Create())
     {
         using (var s = File.Open(modules.First().FileName, FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
@@ -74,7 +74,7 @@ init
     print("MD5: " + MD5Hash);
     
     
-    switch MD5Hash
+    switch (MD5Hash)
     {
         case "ADF9B1685400A71D9DEAB09DFCBC8A8D":
             version = "Steam";
