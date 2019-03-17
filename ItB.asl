@@ -9,7 +9,7 @@
 
 state("Breach", "Steam")
 {
-	//int island : "Breach.exe", 0x0039D824, 0x28, 0x0, 0x148; Unstable --R30
+    //int island : "Breach.exe", 0x0039D824, 0x28, 0x0, 0x148; Unstable --R30
     int island : "Breach.exe", 0x39AC58, 0x3D60;
     int hangar : "Breach.exe", 0x39AAF0;
     int endAnim : "fmodstudio.dll", 0x101CB8, 0x318, 0x40;
@@ -56,7 +56,7 @@ update
 
 init
 {
-	// runs once at when starting ITB.
+    // runs once at when starting ITB.
     // print("init");
     
     //md5 checksum code pulled from Zment's Defy Gravity autosplitter
@@ -90,9 +90,9 @@ init
 
 startup
 {
-	// runs when starting livesplit.
-	// add options here.
-	// print("startup");
+    // runs when starting livesplit.
+    // add options here.
+    // print("startup");
     
     settings.Add("Island Splits", true, "Island Splits");
     settings.SetToolTip("Island Splits", "Enable splits when islands are secured.\nThis will automatically disable auto-resets for running All Squads%");
@@ -111,14 +111,14 @@ startup
 
 start
 {
-	// this runs repeatedly when splitter is on 0.0 and ready to start.
-	// if returning true, splitter will start.
-	// print("start");
+    // this runs repeatedly when splitter is on 0.0 and ready to start.
+    // if returning true, splitter will start.
+    // print("start");
 	
-	if (current.hangar == 2)
-	{
-		return true;
-	}
+    if (current.hangar == 2)
+    {
+        return true;
+    }
 }
 
 reset
@@ -135,22 +135,22 @@ reset
 
 split
 {
-	// runs repeatedly when the timer is running.
-	// returning true advances to the next split.
-	// print("island=" + current.island + " hangar=" + current.hangar + " endAnim=" + current.endAnim);
+    // runs repeatedly when the timer is running.
+    // returning true advances to the next split.
+    // print("island=" + current.island + " hangar=" + current.hangar + " endAnim=" + current.endAnim);
 	
     if (settings["Island Splits"] && (old.island < current.island)){
         return true;
     }
     
-	if (old.endAnim == 0 && current.endAnim == 1)
-	{
-		return true;
-	}
+    if (old.endAnim == 0 && current.endAnim == 1)
+    {
+        return true;
+    }
 }
 
 shutdown
 {
-	// runs when livesplit closes down.
-	// print("shutting down...");
+    // runs when livesplit closes down.
+    // print("shutting down...");
 }
