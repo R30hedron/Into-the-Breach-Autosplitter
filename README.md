@@ -1,7 +1,7 @@
 # Into-the-Breach-Autosplitter
 This is an Into the Breach autosplitter for Livesplit. (https://github.com/LiveSplit/LiveSplit/blob/master/Documentation/Auto-Splitters.md)
 
-It supports ItB version 1.1.22, for all three major distribution platforms (Steam, GoG, and Humble Store). Please look at the autosplitter options to ensure you have the right platform enabled.
+It supports ItB version 1.1.22, for all three major distribution platforms (Steam, GoG, and Humble Store).
 
 As of version 1.0 the following are implemented:
 
@@ -27,4 +27,5 @@ Special thanks to:
 * Xenesis for finding GoG version addresses
 
 Changelog: 
-* 1.0 (7-Mar-2019): First public release (ItB version 1.1.22)
+* 1.0 (07-Mar-2019): First public release (ItB version 1.1.22)
+* 1.1 (16-Mar-2019): Implemented a temporary md5 version check, fixed GoG version
