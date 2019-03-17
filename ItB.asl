@@ -127,7 +127,7 @@ reset
     // if returning true, splitter resets
     // print("reset");
     
-    if (!settings["Island Splits"] && (old.hangar != 1 && current.hangar == 1))
+    if (settings["Island Splits"] && (old.hangar != 1 && current.hangar == 1))
     {
         return true;
     }
