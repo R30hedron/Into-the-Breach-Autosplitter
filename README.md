@@ -1,7 +1,7 @@
 # Into-the-Breach-Autosplitter
 This is an Into the Breach autosplitter for Livesplit. 
 
-For information on what an autosplitter is, go [here](https://github.com/LiveSplit/LiveSplit/blob/master/Documentation/Auto-Splitters.md).
+For information on what an autosplitter is, go [here](https://github.com/LiveSplit/LiveSplit/blob/master/Documentation/Auto-Splitters.md). For information on ItB Speedruns, go [here](https://www.speedrun.com/itb/full_game)
 
 This autosplitter supports ItB version 1.1.22, for all three major distribution platforms (Steam, GoG, and Humble Store).
 
