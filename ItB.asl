@@ -1,4 +1,4 @@
-/* Into the Breach Autosplitter (16-Mar-2019)
+/* Into the Breach Autosplitter (18-Mar-2019)
  * Created by R30hedron (@R30hedron#9520 on Discord)
  * With assistance from Lemonymous (@Lemonymous#6212 on Discord)
  * Special thanks to Xenesis for the GoG version addresses (@Xenesis#2625 on Discord)
@@ -82,8 +82,17 @@ init
         case "6A0C765E5A7345E0B4D02484696A5CAD":
             version = "Humble";
             break;
-        default: //Unknown Hash defaults to GoG version
+        case "D32DF55423EB55621FDFE9CE6708B596":
             version = "GoG";
+            break;
+        default:
+            MessageBox.Show(timer.Form,
+            "ItB Autosplitter startup failure:\n\n"
+            + "Unknown version. Only supports ItB v1.1.22.\n"
+            + "Please message @R30hedron#9520 on Discord with what version you are using.",
+            "ItB.asl version error",
+            MessageBoxButtons.OK,
+            MessageBoxButtons.Error);
             break;
     }
 }
