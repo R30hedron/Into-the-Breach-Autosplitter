@@ -86,13 +86,13 @@ init
             version = "GoG";
             break;
         default:
-            MessageBox.Show(timer.Form,
+            /*MessageBox.Show(timer.Form,
             "ItB Autosplitter startup failure:\n\n"
             + "Unknown version. Only supports ItB v1.1.22.\n"
             + "Please message @R30hedron#9520 on Discord with what version you are using.",
             "ItB.asl version error",
             MessageBoxButtons.OK,
-            MessageBoxButtons.Error);
+            MessageBoxButtons.Error);*/
             break;
     }
 }
