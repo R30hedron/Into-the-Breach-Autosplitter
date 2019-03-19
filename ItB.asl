@@ -1,4 +1,4 @@
-/* Into the Breach Autosplitter (19-Mar-2019)
+/* Into the Breach Autosplitter (16-Mar-2019)
  * Created by R30hedron (@R30hedron#9520 on Discord)
  * With assistance from Lemonymous (@Lemonymous#6212 on Discord)
  * Special thanks to Xenesis for the GoG version addresses (@Xenesis#2625 on Discord)
@@ -147,9 +147,9 @@ split
 {
     // runs repeatedly when the timer is running.
     // returning true advances to the next split.
-    // print("island=" + current.island + " hangar=" + current.hangar + " endAnim=" + current.endAnim);
+    print("island=" + current.island + " hangar=" + current.hangar + " endAnim=" + current.endAnim);
 	
-    if (settings["Island Splits"] && (old.island < current.island)){
+    if (settings["Island Splits"] && (old.island + 1 == current.island)){
         return true;
     }
     
