@@ -1,4 +1,4 @@
-/* Into the Breach Autosplitter (19-Mar-2019)
+/* Into the Breach Autosplitter (20-Mar-2019)
  * Created by R30hedron (@R30hedron#9520 on Discord)
  * With assistance from Lemonymous (@Lemonymous#6212 on Discord)
  * Special thanks to Xenesis for the GoG version addresses (@Xenesis#2625 on Discord)
@@ -119,8 +119,6 @@ startup
      */
      
     //variable to store current island
-    //Needed, since island loses the correct pointer if the player goes into the main menu, or rarely during turn resets.
-    //This will remain static even if ItB crashes or accidentally closed.
     vars.secured = 0;
 }
 
@@ -132,6 +130,9 @@ start
 	
     if (current.hangar == 2)
     {
+        print("Run Start");
+        //print("island:" + current.island + " secured:" + vars.secured);
+        //print("hangar=" + current.hangar + " endAnim=" + current.endAnim);
         return true;
     }
 }
@@ -145,6 +146,7 @@ reset
     if (settings["Island Splits"] && (old.hangar != 1 && current.hangar == 1))
     {
         vars.secured = 0;
+        //print("Run Reset");
         return true;
     }
 }
@@ -153,17 +155,21 @@ split
 {
     // runs repeatedly when the timer is running.
     // returning true advances to the next split.
-    print("island:" + current.island + " secured:" + vars.secured);
-    print("hangar=" + current.hangar + " endAnim=" + current.endAnim);
+    //print("island:" + current.island + " secured:" + vars.secured);
+    //print("hangar=" + current.hangar + " endAnim=" + current.endAnim);
 	
-    if (settings["Island Splits"] && (vars.secured + 1 == current.island)){
+    if (current.hangar != 2 && settings["Island Splits"] && (vars.secured + 1 == current.island)){
         vars.secured = vars.secured + 1;
+        print("Island Split");
+        //print("island:" + current.island + " secured:" + vars.secured);
+        //print("hangar=" + current.hangar + " endAnim=" + current.endAnim);
         return true;
     }
     
     if (old.endAnim == 0 && current.endAnim == 1)
     {
         vars.secured = 0;
+        //print("End of Run");
         return true;
     }
 }
