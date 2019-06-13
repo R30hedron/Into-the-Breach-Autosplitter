@@ -1,65 +1,85 @@
-/* Into the Breach Autosplitter (20-Mar-2019)
+/* Into the Breach Autosplitter (13-Jun-2019)
  * Created by R30hedron (@R30hedron#9520 on Discord)
  * With assistance from Lemonymous (@Lemonymous#6212 on Discord)
  * Special thanks to Xenesis for the GoG version addresses (@Xenesis#2625 on Discord)
 
- * Currently accurate for Windows ItB version 1.1.22 (Steam, Humble, and GoG)
+ * Currently accurate for Windows ItB version 1.1.22
+ * Future versions of ItB should still function as expected, but auto-resets will be disabled.
  */
-
 
 state("Breach", "Steam")
 {
-    //int island : "Breach.exe", 0x0039D824, 0x28, 0x0, 0x148; Unstable --R30
-    int island : "Breach.exe", 0x39AC58, 0x3D60;
-    int hangar : "Breach.exe", 0x39AAF0;
-    int endAnim : "fmodstudio.dll", 0x101CB8, 0x318, 0x40;
+    int runreset : "Breach.exe", 0x39AAF0;
+    int runstart : "fmodstudio.dll", 0x00101CB8, 0x578, 0x18;
+    int missionsplit : "fmodstudio.dll", 0x00101CB8, 0x540, 0x8, 0x0, 0x34, 0xD4;
+    int islandsplit : "fmodstudio.dll", 0x00101CB8, 0x5DC, 0x18;
+    int bossonesplit :  "fmodstudio.dll", 0x00101CB8, 0x128, 0x18;
+    int bosstwosplit : "fmodstudio.dll", 0x00101CB8, 0x318, 0x18;
 }
 
 state("Breach", "Humble")
 {
-    int island : "Breach.exe", 0x39AB68, 0x3D60;
-    int hangar : "Breach.exe", 0x39AA00;
-    int endAnim : "fmodstudio.dll", 0x101CB8, 0x318, 0x40;
+    int runreset : "Breach.exe", 0x39AA00;
+    int runstart : "fmodstudio.dll", 0x00101CB8, 0x578, 0x18;
+    int missionsplit : "fmodstudio.dll", 0x00101CB8, 0x540, 0x8, 0x0, 0x34, 0xD4;
+    int islandsplit : "fmodstudio.dll", 0x00101CB8, 0x5DC, 0x18;
+    int bossonesplit :  "fmodstudio.dll", 0x00101CB8, 0x128, 0x18;
+    int bosstwosplit : "fmodstudio.dll", 0x00101CB8, 0x318, 0x18;
 }
 
 state("Breach", "GoG")
 {
-    int island : "Breach.exe", 0x39AE28, 0x3D60;
-    int hangar : "Breach.exe", 0x39ACC0;
-    int endAnim : "fmodstudio.dll", 0x101CB8, 0x318, 0x40;
+    int runreset : "Breach.exe", 0x39ACC0;
+    int runstart : "fmodstudio.dll", 0x00101CB8, 0x578, 0x18;
+    int missionsplit : "fmodstudio.dll", 0x00101CB8, 0x540, 0x8, 0x0, 0x34, 0xD4;
+    int islandsplit : "fmodstudio.dll", 0x00101CB8, 0x5DC, 0x18;
+    int bossonesplit :  "fmodstudio.dll", 0x00101CB8, 0x128, 0x18;
+    int bosstwosplit : "fmodstudio.dll", 0x00101CB8, 0x318, 0x18;
 }
 
-/* Variable Info:
- * [island] stores number of completed islands.
- * [hangar] stores gamestate relative to the squad select screen
+state("Breach", "Unknown Version")
+{
+    //int runreset : null;
+    int runstart : "fmodstudio.dll", 0x00101CB8, 0x578, 0x18;
+    int missionsplit : "fmodstudio.dll", 0x00101CB8, 0x540, 0x8, 0x0, 0x34, 0xD4;
+    int islandsplit : "fmodstudio.dll", 0x00101CB8, 0x5DC, 0x18;
+    int bossonesplit :  "fmodstudio.dll", 0x00101CB8, 0x128, 0x18;
+    int bosstwosplit : "fmodstudio.dll", 0x00101CB8, 0x318, 0x18;
+}
+
+/* Variable Info
+ * [runreset] : stores game state relative to the hangar screen
  * 0: Main Menu or in-game
- * 1: Hangar / Squad selection
+ * 1: Hangar / Squad Selection
  *     NOTE: If you win a game, this stays at 0, even at the hangar.
+ *     This is used to auto-reset the timer; only works for ItB 1.1.22, and is version specific.
  * 2: Game Start
- * [endAnim] stores gamestate relative to the ending cutscene
- * 1: Renfield Bomb explosion cutscene active
- * endAnim is identical between Steam and non-Steam releases.
- *
- * Logic:
- * Start when hangar is equal to 2
- * Reset when hangar changes from !1 -> 1
- * Split when 
- *     island increases
- *     when endAnim changes from 0 -> 1
+ * 
+ * [runstart] : (FMOD) Triggers on run start.
+ * 
+ * [missionsplit] : (FMOD) Triggers on mission complete screen
+ * 
+ * [islandsplit] : (FMOD) Triggers on island zoom out
+ * 
+ * [bossonesplit] : (FMOD) Triggers on end of final mission phase 1
+ * 
+ * [bosstwosplit] : (FMOD) Triggers on end of final mission phase 2
+ *     Used as end of timer for Any% runs
  */
 
 update
 {
-    // runs at all times when the game is running.
-    // print("update");
+    //runs at all times when the game is running
+    //print("update");
 }
 
 init
 {
-    // runs once at when starting ITB.
-    // print("init");
+    //runs once when starting ItB.
+    //print("init");
     
     //md5 checksum code pulled from Zment's Defy Gravity autosplitter
+    //Legacy code used here for auto resets
     
     byte[] exeMD5HashBytes = new byte[0];
     using (var md5 = System.Security.Cryptography.MD5.Create())
@@ -86,101 +106,122 @@ init
             version = "GoG";
             break;
         default:
-            MessageBox.Show(timer.Form,
-            "ItB Autosplitter startup failure:\n\n"
-            + "Unknown version. Only supports ItB v1.1.22.\n"
-            + "Please message @R30hedron#9520 on Discord with what version you are using.\n"
-            + "Important number: " + MD5Hash,
-            "ItB Autosplitter Unknown Version",
-            MessageBoxButtons.OK,
-            MessageBoxIcon.Error);
+            version = "Unknown Version";
             break;
     }
 }
 
 startup
 {
-    // runs when starting livesplit.
-    // add options here.
-    // print("startup");
+    //runs when starting livesplit
+    //options added here
+    //print("startup);
     
-    settings.Add("Island Splits", true, "Island Splits");
-    settings.SetToolTip("Island Splits", "Enable splits when islands are secured.\nThis will automatically disable auto-resets for running All Squads%");
+    settings.Add("mission", false, "Mission Splits");
+    settings.SetToolTip("mission", "Enable splits when missions are completed.");
     
+    settings.Add("island", true, "Island Splits");
+    settings.SetToolTip("island", "Enable splits when islands are secured.");
     
-    //settings.Add("Steam Version", true, "Steam Version");
-    //settings.SetToolTip("Steam Version", "Enable if you are running the Steam version of the game.");
-    //settings.Add("GoG Version", false, "GoG Version");
-    //settings.SetToolTip("GoG Version", "Enable if you are running the GoG version of the game.");
+    settings.Add("phaseone", false, "Final Mission Phase 1 Split");
+    settings.SetToolTip("phaseone", "Enable an additional split at the end of the first phase of the final mission.");
     
-    // NOTE: 3 Islands option was removed from here, since there are currently no 3 island any% runs
-    /* settings.Add("4 Islands", false, "4 Islands", "Island Splits");
-     * settings.SetToolTip("4 Islands", "Enable if running a 4-Island category.");
-     */
-     
+    //variable to store current mission
+    vars.missions = 0;
     //variable to store current island
-    vars.secured = 0;
-}
-
-start
-{
-    // this runs repeatedly when splitter is on 0.0 and ready to start.
-    // if returning true, splitter will start.
-    // print("start");
-	
-    if (current.hangar == 2)
-    {
-        print("Run Start");
-        //print("island:" + current.island + " secured:" + vars.secured);
-        //print("hangar=" + current.hangar + " endAnim=" + current.endAnim);
-        return true;
-    }
+    vars.islands = 0;
 }
 
 reset
 {
-    // this runs repeatedly when timer is running.
-    // if returning true, splitter resets
-    // print("reset");
+    //runs repeatedly when timer is running
+    //if true, reset splitter
+    //print("reset");
     
-    if (settings["Island Splits"] && (old.hangar != 1 && current.hangar == 1))
+    if (old.runreset != 1 && current.runreset == 1)
     {
-        vars.secured = 0;
-        //print("Run Reset");
+        print("reset");
+        return true;
+    }
+}
+
+start
+{
+    //runs repeatedly when timer is at 0.0 and ready to start
+    //if true, splitter will start
+    //print("start");
+    
+    if (old.runstart == 0 && current.runstart == 1)
+    {
+        print("run start");
+        vars.missions = 0;
+        vars.islands = 0;
         return true;
     }
 }
 
 split
 {
-    // runs repeatedly when the timer is running.
-    // returning true advances to the next split.
-    //print("island:" + current.island + " secured:" + vars.secured);
-    //print("hangar=" + current.hangar + " endAnim=" + current.endAnim);
-	
-    if (current.hangar != 2 && settings["Island Splits"] && (vars.secured + 1 == current.island)){
-        vars.secured = vars.secured + 1;
-        print("Island Split");
-        //print("island:" + current.island + " secured:" + vars.secured);
-        //print("hangar=" + current.hangar + " endAnim=" + current.endAnim);
+    //runs repeatedly when timer is running
+    //if true, split
+    
+    //mission splits
+    if (old.missionsplit == 0 && current.missionsplit == 1)
+    {
+        vars.missions = vars.missions + 1;
+        print("mission:" + vars.missions + " island:" + vars.islands);
+        if (settings["mission"] && vars.missions < 5)
+        {
+            print("mission split");
+            return true;
+        }
+    }
+    
+    //island splits
+    if (old.islandsplit == 0 && current.islandsplit == 1)
+    {
+        vars.missions = 0;
+        vars.islands = vars.islands + 1;
+        print("mission:" + vars.missions + " island:" + vars.islands);
+        if (settings["island"])
+        {
+            print("island split");
+            return true;
+        }
+    }
+    
+    //final mission splits
+    if (old.bossonesplit == 0 && current.bossonesplit == 1)
+    {
+        if (settings["phaseone"])
+        {
+            print("phase one split");
+            return true;
+        }
+    }
+    
+    if (old.bosstwosplit == 0 && current.bosstwosplit == 1)
+    {
+        print("phase two split");
         return true;
     }
     
-    if (old.endAnim == 0 && current.endAnim == 1)
+    //timeline splits (used only for non-Any% runs)
+    if (old.runstart == 0 && current.runstart == 1)
     {
-        vars.secured = 0;
-        //print("End of Run");
-        return true;
+        print("timeline start");
+        vars.missions = 0;
+        vars.islands = 0;
     }
 }
 
 exit
 {
-    //Runs once when ItB closes down
+    //runs when ItB closes down
 }
 
 shutdown
 {
-    // runs when livesplit closes down.
-    // print("shutting down...");
+    //runs when livesplit closes down
+    //print("shutdown");
 }
