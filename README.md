@@ -9,8 +9,10 @@ The following are implemented:
 
 * Automatic Timer Starts
 * Automatic Splits
+    * Mission Completed
     * Island Secured
-    * End of Game
+    * End of Phase 1 of the Last Stand
+    * End of Phase 2 of the Last Stand
         * This split happens as soon as the Renfield Bomb animation starts at the end of Phase 2.
 * Automatic Timer Resets
 * Support for all three versions (Steam, GoG, Humble)
