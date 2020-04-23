@@ -3,7 +3,7 @@
  * With assistance from Lemonymous (@Lemonymous#6212 on Discord)
  * Special thanks to Xenesis for the GoG version addresses (@Xenesis#2625 on Discord)
 
- * Currently accurate for Windows ItB version 1.1.22
+ * Currently accurate for Windows ItB version 1.1.22 and 1.2.21
  * Future versions of ItB should still function as expected, but auto-resets will be disabled.
  */
 
