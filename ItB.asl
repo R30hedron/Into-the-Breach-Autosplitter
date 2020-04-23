@@ -32,18 +32,6 @@ state("Breach")
  *     Used as end of timer for Any% runs
  */
 
-update
-{
-    //runs at all times when the game is running
-    //print("update");
-}
-
-init
-{
-    //runs once when starting ItB.
-    //print("init");
-}
-
 startup
 {
     //runs when starting livesplit
@@ -146,15 +134,4 @@ split
         vars.missions = 0;
         vars.islands = 0;
     }
-}
-
-exit
-{
-    //runs when ItB closes down
-}
-
-shutdown
-{
-    //runs when livesplit closes down
-    //print("shutdown");
 }
