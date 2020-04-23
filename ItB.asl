@@ -7,43 +7,73 @@
  * Future versions of ItB should still function as expected, but auto-resets will be disabled.
  */
 
-state("Breach", "Steam")
+state("Breach", "Steam 1.1.22")
 {
-    int runreset : "Breach.exe", 0x39AAF0;
-    int runstart : "fmodstudio.dll", 0x00101CB8, 0x578, 0x18;
+    int runreset     : "Breach.exe", 0x39AAF0;
+    int runstart     : "fmodstudio.dll", 0x00101CB8, 0x578, 0x18;
     int missionsplit : "fmodstudio.dll", 0x00101CB8, 0x540, 0x8, 0x0, 0x34, 0xD4;
-    int islandsplit : "fmodstudio.dll", 0x00101CB8, 0x5DC, 0x18;
-    int bossonesplit :  "fmodstudio.dll", 0x00101CB8, 0x128, 0x18;
+    int islandsplit  : "fmodstudio.dll", 0x00101CB8, 0x5DC, 0x18;
+    int bossonesplit : "fmodstudio.dll", 0x00101CB8, 0x128, 0x18;
     int bosstwosplit : "fmodstudio.dll", 0x00101CB8, 0x318, 0x18;
 }
 
-state("Breach", "Humble")
+state("Breach", "Humble 1.1.22")
 {
-    int runreset : "Breach.exe", 0x39AA00;
-    int runstart : "fmodstudio.dll", 0x00101CB8, 0x578, 0x18;
+    int runreset     : "Breach.exe", 0x39AA00;
+    int runstart     : "fmodstudio.dll", 0x00101CB8, 0x578, 0x18;
     int missionsplit : "fmodstudio.dll", 0x00101CB8, 0x540, 0x8, 0x0, 0x34, 0xD4;
-    int islandsplit : "fmodstudio.dll", 0x00101CB8, 0x5DC, 0x18;
-    int bossonesplit :  "fmodstudio.dll", 0x00101CB8, 0x128, 0x18;
+    int islandsplit  : "fmodstudio.dll", 0x00101CB8, 0x5DC, 0x18;
+    int bossonesplit : "fmodstudio.dll", 0x00101CB8, 0x128, 0x18;
     int bosstwosplit : "fmodstudio.dll", 0x00101CB8, 0x318, 0x18;
 }
 
-state("Breach", "GoG")
+state("Breach", "GoG 1.1.22")
 {
-    int runreset : "Breach.exe", 0x39ACC0;
-    int runstart : "fmodstudio.dll", 0x00101CB8, 0x578, 0x18;
+    int runreset     : "Breach.exe", 0x39ACC0;
+    int runstart     : "fmodstudio.dll", 0x00101CB8, 0x578, 0x18;
     int missionsplit : "fmodstudio.dll", 0x00101CB8, 0x540, 0x8, 0x0, 0x34, 0xD4;
-    int islandsplit : "fmodstudio.dll", 0x00101CB8, 0x5DC, 0x18;
-    int bossonesplit :  "fmodstudio.dll", 0x00101CB8, 0x128, 0x18;
+    int islandsplit  : "fmodstudio.dll", 0x00101CB8, 0x5DC, 0x18;
+    int bossonesplit : "fmodstudio.dll", 0x00101CB8, 0x128, 0x18;
+    int bosstwosplit : "fmodstudio.dll", 0x00101CB8, 0x318, 0x18;
+}
+
+state("Breach", "Steam 1.2.21")
+{
+    int runreset     : "Breach.exe", 0x44387C;
+    int runstart     : "fmodstudio.dll", 0x00101CB8, 0x578, 0x18;
+    int missionsplit : "fmodstudio.dll", 0x00101CB8, 0x540, 0x8, 0x0, 0x34, 0xD4;
+    int islandsplit  : "fmodstudio.dll", 0x00101CB8, 0x5DC, 0x18;
+    int bossonesplit : "fmodstudio.dll", 0x00101CB8, 0x128, 0x18;
+    int bosstwosplit : "fmodstudio.dll", 0x00101CB8, 0x318, 0x18;
+}
+
+state("Breach", "Humble 1.2.21")
+{
+    int runreset     : "Breach.exe", 0x4427D4;
+    int runstart     : "fmodstudio.dll", 0x00101CB8, 0x578, 0x18;
+    int missionsplit : "fmodstudio.dll", 0x00101CB8, 0x540, 0x8, 0x0, 0x34, 0xD4;
+    int islandsplit  : "fmodstudio.dll", 0x00101CB8, 0x5DC, 0x18;
+    int bossonesplit : "fmodstudio.dll", 0x00101CB8, 0x128, 0x18;
+    int bosstwosplit : "fmodstudio.dll", 0x00101CB8, 0x318, 0x18;
+}
+
+state("Breach", "GoG 1.2.21")
+{
+    int runreset     : "Breach.exe", 0x443A8C;
+    int runstart     : "fmodstudio.dll", 0x00101CB8, 0x578, 0x18;
+    int missionsplit : "fmodstudio.dll", 0x00101CB8, 0x540, 0x8, 0x0, 0x34, 0xD4;
+    int islandsplit  : "fmodstudio.dll", 0x00101CB8, 0x5DC, 0x18;
+    int bossonesplit : "fmodstudio.dll", 0x00101CB8, 0x128, 0x18;
     int bosstwosplit : "fmodstudio.dll", 0x00101CB8, 0x318, 0x18;
 }
 
 state("Breach", "Unknown Version")
 {
-    //int runreset : null;
-    int runstart : "fmodstudio.dll", 0x00101CB8, 0x578, 0x18;
+    //int runreset   : null;
+    int runstart     : "fmodstudio.dll", 0x00101CB8, 0x578, 0x18;
     int missionsplit : "fmodstudio.dll", 0x00101CB8, 0x540, 0x8, 0x0, 0x34, 0xD4;
-    int islandsplit : "fmodstudio.dll", 0x00101CB8, 0x5DC, 0x18;
-    int bossonesplit :  "fmodstudio.dll", 0x00101CB8, 0x128, 0x18;
+    int islandsplit  : "fmodstudio.dll", 0x00101CB8, 0x5DC, 0x18;
+    int bossonesplit : "fmodstudio.dll", 0x00101CB8, 0x128, 0x18;
     int bosstwosplit : "fmodstudio.dll", 0x00101CB8, 0x318, 0x18;
 }
 
@@ -97,13 +127,22 @@ init
     switch (MD5Hash)
     {
         case "ADF9B1685400A71D9DEAB09DFCBC8A8D":
-            version = "Steam";
+            version = "Steam 1.1.22";
             break;
         case "6A0C765E5A7345E0B4D02484696A5CAD":
-            version = "Humble";
+            version = "Humble 1.1.22";
             break;
         case "D32DF55423EB55621FDFE9CE6708B596":
-            version = "GoG";
+            version = "GoG 1.1.22";
+            break;
+        case "82076CF44431A7A1F79E50DABA122143":
+            version = "Steam 1.2.21";
+            break;
+        case "8C4F4DB4DD7207B8DBA51EFCF2FD57E3":
+            version = "Humble 1.2.21";
+            break;
+        case "DE72A8A18C4AE8F6F49108086771B29D":
+            version = "GoG 1.2.21";
             break;
         default:
             version = "Unknown Version";
