@@ -1,4 +1,4 @@
-/* Into the Breach Autosplitter (13-Jun-2019)
+/* Into the Breach Autosplitter (22-Apr-2020)
  * Created by R30hedron (@R30hedron#9520 on Discord)
  * With assistance from Lemonymous (@Lemonymous#6212 on Discord)
  * Special thanks to Xenesis for the GoG version addresses (@Xenesis#2625 on Discord)
