@@ -1,7 +1,7 @@
 # Into-the-Breach-Autosplitter
 This is an Into the Breach autosplitter for Livesplit. 
 
-For information on what an autosplitter is, go [here](https://github.com/LiveSplit/LiveSplit/blob/master/Documentation/Auto-Splitters.md). For information on ItB Speedruns, go [here](https://www.speedrun.com/itb/full_game).
+For information on what an autosplitter is, go [here](https://github.com/LiveSplit/LiveSplit.AutoSplitters/blob/master/README.md). For information on ItB Speedruns, go [here](https://www.speedrun.com/itb/full_game).
 
 This autosplitter should support ItB on Windows, regardless of storefront. If there are any issues, please notify R30hedron on Discord (@R30hedron#9529).
 
