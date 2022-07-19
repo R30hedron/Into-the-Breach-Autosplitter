@@ -49,6 +49,9 @@ init
     //Used to determine game version
     
     //Look for particular file that is present for post-AE versions and missing for older
+    
+    var exe = modules.First();
+    
     if (File.Exists(Path.Combine(
         Path.GetDirectoryName(exe.FileName), "maps", "ae_trailer.map"
     )))
