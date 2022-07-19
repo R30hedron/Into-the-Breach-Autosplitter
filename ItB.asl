@@ -47,7 +47,11 @@ init
 {
     //runs when starting Into the Breach
     //Used to determine game version
-    if (settings["advanced"])
+    
+    //Look for particular file that is present for post-AE versions and missing for older
+    if (File.Exists(Path.Combine(
+        Path.GetDirectoryName(exe.FileName), "maps", "ae_trailer.map"
+    )))
     {
         version = "Post-AE";
     }
@@ -62,9 +66,6 @@ startup
     //runs when starting livesplit
     //options added here
     //print("startup);
-    
-    settings.Add("advanced", true, "Advanced Edition");
-    settings.SetToolTip("advanced", "Change memory addresses to those found in the Advanced Editition version.");
     
     settings.Add("mission", false, "Mission Splits");
     settings.SetToolTip("mission", "Enable splits when missions are completed.");
