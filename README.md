@@ -24,8 +24,10 @@ Special thanks to:
 * Xenesis for verifying that the autosplitter works as expected for the GoG version of the game.
 
 Changelog: 
+* 1.4.1 (19-Jul-2022): Memory addresses updated for ItB version 1.2.86
+* 1.4 (19-Jul-2022): Memory addresses added for the new Advanced Edition content update
 * 1.3 (22-Apr-2020): All memory addresses have been updated to be version agnostic.
 * 1.2.1 (22-Apr-2020): Updated (and verified) the addresses for ItB version 1.2.21
 * 1.2 (13-Jun-2019): Implemented options for mission splits and an additional split on phase 1 for the final mission. Cleaned up most of the code to be more version agnostic.
 * 1.1 (16-Mar-2019): Implemented a temporary md5 version check, fixed GoG version
-* 1.0 (07-Mar-2019): First public release (ItB version 1.1.22)
+* 1.0 (07-Mar-2019): First public release
