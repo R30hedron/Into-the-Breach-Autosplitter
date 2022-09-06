@@ -1,10 +1,11 @@
-/* Into the Breach Autosplitter (19-JUL-2022)
+/* Into the Breach Autosplitter (06-SEP-2022)
  * Created by R30hedron (@R30hedron#9520 on Discord)
  * With assistance from:
  * Lemonymous (@Lemonymous#6212 on Discord) for initial setup
  * Xenesis (@Xenesis#2625 on Discord) for verifying the autosplitter works for the GOG version.
 
- * Currently accurate up to Windows ItB version 1.2.71 (Adv. Edition)
+ * Currently accurate for Windows ItB versions 1.2.24 (Pre-AE) and 1.2.82 (AE).
+ * Note this will not work for older versions of ItB AE.
  */
 
 state("Breach", "Old (Pre-AE)")
@@ -20,11 +21,11 @@ state("Breach", "Old (Pre-AE)")
 state("Breach", "Post-AE")
 {
     int runreset     : "fmodstudio.dll", 0x00101CB8, 0x0, 0x8, 0x21C, 0xC, 0x1C, 0x11C, 0x28;
-    int runstart     : "fmodstudio.dll", 0x00101CB8, 0x718, 0x18;
-    int missionsplit : "fmodstudio.dll", 0x00101CB8, 0x6C8, 0x8, 0x0, 0x34, 0xD4;
-    int islandsplit  : "fmodstudio.dll", 0x00101CB8, 0x7A0, 0x18;
-    int bossonesplit : "fmodstudio.dll", 0x00101CB8, 0x138, 0x18;
-    int bosstwosplit : "fmodstudio.dll", 0x00101CB8, 0x3F4, 0x18;
+    int runstart     : "fmodstudio.dll", 0x00101CB8, 0x720, 0x18;
+    int missionsplit : "fmodstudio.dll", 0x00101CB8, 0x6D0, 0x8, 0x0, 0x34, 0xD4;
+    int islandsplit  : "fmodstudio.dll", 0x00101CB8, 0x7A8, 0x18;
+    int bossonesplit : "fmodstudio.dll", 0x00101CB8, 0x140, 0x18;
+    int bosstwosplit : "fmodstudio.dll", 0x00101CB8, 0x3FC, 0x18;
 }
 
 
